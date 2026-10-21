@@ -16,8 +16,8 @@
 /* Layout: branded header, numbered 4-step flow in one centered column (max 980px), result cards in a 2-up grid that stacks on phones. */
 :root{
   --bg:#F5FAFC; --surface:#FFFFFF; --tint:#E7F5FB; --line:#D3E6EE;
-  --ink:#24343B; --muted:#5B6E77; --blue:#2EB8E1; --blue-ink:#127FA3; --gold:#F6CF5E; --gold-ink:#7A5A00;
-  --below:#D9532F; --below-bg:#FCE9E3; --ongoal:#127FA3; --ongoal-bg:#E1F3FA; --above:#9A6B00; --above-bg:#FDF3D6;
+  --ink:#24343B; --muted:#5B6E77; --blue:#2EB8E1; --blue-ink:#127FA3; --gold:#F6CF5E; --gold-ink:#F6CF5E;
+  --below:#D9532F; --below-bg:#FCE9E3; --ongoal:#127FA3; --ongoal-bg:#E1F3FA; --above:#3A2C00; --above-bg:#F6CF5E;
   --t-red:#D8432E; --t-orange:#EB8A2A; --t-blue:#2EB8E1; --t-green:#2E9A55;
   --on-blue:#FFFFFF; --on-gold:#3A2C00;
   --f-display:"Montserrat",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
@@ -141,7 +141,7 @@ button{font:inherit}
 .mq h4{font-family:var(--f-display);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:8px 0 6px}
 .mq ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:15px}
 .opp{border-left:0;background:var(--surface);border:2px solid var(--gold);border-radius:var(--r);padding:18px 20px;margin-bottom:24px}
-.opp .label{font-family:var(--f-display);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink)}
+.opp .label{font-family:var(--f-display);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
 .opp p{margin:6px 0 0}
 .standard{display:flex;gap:18px;align-items:center;flex-wrap:wrap;padding:16px 20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);margin-bottom:24px}
 .standard .t{font-family:var(--f-display);font-weight:800;color:var(--blue-ink);text-transform:uppercase;line-height:1.1;font-size:15px}
@@ -571,7 +571,7 @@ function buildPdf(){
   const { jsPDF } = window.jspdf;
   const d=new jsPDF({unit:"pt",format:"letter"}); const W=612, M=40; let y=0;
   const BLUE=[46,184,225], GOLD=[246,207,94], INK=[36,52,59], MUTED=[91,110,119];
-  const COL={below:[217,83,47],ongoal:[18,127,163],above:[154,107,0],red:[216,67,46],orange:[235,138,42],blue:[18,127,163],green:[46,154,85],na:[91,110,119]};
+  const COL={below:[217,83,47],ongoal:[18,127,163],above:[58,44,0],red:[216,67,46],orange:[235,138,42],blue:[18,127,163],green:[46,154,85],na:[91,110,119]};
   const r=S.results, a=S.analysis;
   d.setFillColor(...BLUE); d.rect(0,0,W,6,"F");
   d.addImage(LOGO,"PNG",M,22,190,36);
@@ -600,7 +600,7 @@ function buildPdf(){
   // opportunity
   const op=wrap(a.biggestOpportunity||"",W-2*M-24,10.5); need(op.h+34);
   d.setDrawColor(...GOLD); d.setLineWidth(2); d.roundedRect(M,y,W-2*M,op.h+30,6,6,"S");
-  d.setFont("helvetica","bold"); d.setFontSize(9); d.setTextColor(122,90,0); d.text("YOUR BIGGEST OPPORTUNITY",M+12,y+16); op.draw(M+12,y+20); y+=op.h+44;
+  d.setFont("helvetica","bold"); d.setFontSize(9); d.setTextColor(...INK); d.text("YOUR BIGGEST OPPORTUNITY",M+12,y+16); op.draw(M+12,y+20); y+=op.h+44;
   // insights
   for(const m of METRICS){
     const ins=(a.metricInsights||{})[m.key]; if(!ins) continue;
