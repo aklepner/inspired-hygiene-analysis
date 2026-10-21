@@ -1,4 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head>
 <title>Inspired Hygiene Analysis</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap">
@@ -13,18 +22,8 @@
   --on-blue:#FFFFFF; --on-gold:#3A2C00;
   --f-display:"Montserrat",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
   --f-body:"Source Sans 3","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
-  --r:10px;
+  --r:10px; color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0E181C; --surface:#152329; --tint:#1A2E36; --line:#28414B;
-  --ink:#E4EEF2; --muted:#9DB2BA; --blue:#3EC3EA; --blue-ink:#6FD3F2; --gold:#F2CD62; --gold-ink:#F2CD62;
-  --below:#FF8A66; --below-bg:#3A2019; --ongoal:#6FD3F2; --ongoal-bg:#16333F; --above:#F2CD62; --above-bg:#3A3117;
-  --on-blue:#06232E; --on-gold:#2A2000; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0E181C; --surface:#152329; --tint:#1A2E36; --line:#28414B;
-  --ink:#E4EEF2; --muted:#9DB2BA; --blue:#3EC3EA; --blue-ink:#6FD3F2; --gold:#F2CD62; --gold-ink:#F2CD62;
-  --below:#FF8A66; --below-bg:#3A2019; --ongoal:#6FD3F2; --ongoal-bg:#16333F; --above:#F2CD62; --above-bg:#3A3117;
-  --on-blue:#06232E; --on-gold:#2A2000; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
 .wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -38,15 +37,12 @@ button{font:inherit}
 .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
 .logo{height:40px;width:auto;display:block}
 .logo-dark{display:none}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .logo{background:#fff;border-radius:8px;padding:4px 8px;height:44px}}
-:root[data-theme="dark"] .logo{background:#fff;border-radius:8px;padding:4px 8px;height:44px}
 .toptag{font-family:var(--f-display);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--muted)}
 
 .hero{padding-block:32px 8px}
 .hero .eyebrow{font-family:var(--f-display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-ink)}
 .hero h1{font-size:clamp(28px,4.4vw,42px);font-weight:800;text-transform:uppercase;line-height:1.08;margin-top:8px;color:var(--blue)}
 .hero h1 span{color:var(--gold-ink)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .hero h1 span{color:var(--gold)}}
 .hero p{max-width:62ch;color:var(--muted);font-size:18px;margin:12px 0 0}
 
 /* stepper */
@@ -638,3 +634,6 @@ $("pdfBtn").onclick=async()=>{
 
 show(1,false);
 </script>
+
+</body>
+</html>
